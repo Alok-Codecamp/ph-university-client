@@ -13,21 +13,25 @@ import PhInput from "../components/form/PhInput";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
+  const defaultValues = {
+    id: "A-0001",
+    password: "admin123",
+  };
   const [login, { data, error }] = useLoginMutation();
 
   console.log("data==>", data);
   console.log("error==>", error);
 
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
     const toastId = toast.loading("Logging in...");
     const userInfo = {
       id: data.id,
       password: data.password,
     };
+
     try {
       const res = await login(userInfo).unwrap();
-
       const user = verifyToken(res.data.accessToken);
       const { userRole } = user as TUser;
       // console.log("from login", user);
@@ -40,7 +44,7 @@ const Login = () => {
   };
   return (
     <Row justify={"center"} align={"middle"} style={{ height: "100vh" }}>
-      <PhForm onSubmit={onSubmit}>
+      <PhForm onSubmit={onSubmit} defaultValues={defaultValues}>
         <div style={{ marginBottom: "20px" }} className="id-input-container">
           {/* <label htmlFor="id">ID</label> */}
           <PhInput type="text" name="id" label={"Id"} />
