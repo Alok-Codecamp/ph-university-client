@@ -11,3 +11,13 @@ export type TAcademicSemester = {
     createdAt: string;
     updatedAt: string;
 }
+
+
+export type TAcademicFaculty = {
+    name: string;
+}
+
+export type TAcademicDepertment = {
+    name: string;
+    academicFaculty: string;
+}
