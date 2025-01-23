@@ -1,7 +1,6 @@
-import CreateAdmin from "../pages/admin/CreateAdmin";
-import CreateFaculty from "../pages/admin/CreateFaculty";
-import AdminDashboard from "../pages/admin/AdminDashboard";
-import CreateStudent from "../pages/admin/CreateStudent";
+import CreateAdmin from "../pages/admin/userManagement/CreateAdmin";
+import CreateFaculty from "../pages/admin/userManagement/CreateFaculty";
+import CreateStudent from "../pages/admin/userManagement/CreateStudent";
 import Student from "../pages/student/Student";
 
 export const studentPath = [
@@ -14,6 +13,16 @@ export const studentPath = [
     name: "User Management",
     children: [
       {
+        name: "Create Student",
+        path: "create-student",
+        element: <CreateStudent />,
+      },
+      {
+        name: "Students",
+        path: "students-data",
+        element: <Student />,
+      },
+      {
         name: "Create Admin",
         path: "create-admin",
         element: <CreateAdmin />,
@@ -22,11 +31,6 @@ export const studentPath = [
         name: "Create Faculty",
         path: "create-faculty",
         element: <CreateFaculty />,
-      },
-      {
-        name: "Create Student",
-        path: "create-student",
-        element: <CreateStudent />,
       },
     ],
   },

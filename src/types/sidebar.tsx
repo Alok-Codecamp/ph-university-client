@@ -7,8 +7,10 @@ export type TUserPath = {
   children?: TUserPath[];
 };
 
-export type TLink = {
-  key: string;
-  label: ReactNode;
-  children?: TLink[];
-};
+export type TLink =
+  | {
+      key: string;
+      label: ReactNode;
+      children?: TLink[];
+    }
+  | undefined;
